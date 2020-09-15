@@ -29,9 +29,13 @@
 										</tr>
 									</thead>
 									<tbody>
+								@foreach($laborales as $nombres)		
 									@foreach($vendedores as $vendedor)
+										
 										<tr>
-											<td>{{ $vendedor->empleado->nombre }} {{ $vendedor->empleado->appaterno }} {{ $vendedor->empleado->apmaterno }}</td>
+										@if($vendedor->empleado_id = $nombres->id)
+											<td>{{ $nombres->nombre}} {{ $nombres->appaterno}} {{ $nombres->apmaterno}}</td>
+											
 											@if(isset($vendedor->grupo) && isset($vendedor->grupo->subgerente))
 												<td>{{ $vendedor->grupo->nombre }}</td>
 												<td>{{ $vendedor->grupo->subgerente->empleado->nombre}} {{ $vendedor->grupo->subgerente->empleado->appaterno }} {{ $vendedor->grupo->subgerente->empleado->apmaterno }}</td>
@@ -39,10 +43,15 @@
 												<td>No asignado</td>
 												<td>No asignado</td>
 											@endif
+										
+											
+											
 											<td class="text-center">
 												<input type="radio" name="vendedor_id" value="{{ $vendedor->id }}" required="">
 											</td>
+										@endif
 										</tr>
+										@endforeach
 									@endforeach
 									</tbody>
 								</table>
