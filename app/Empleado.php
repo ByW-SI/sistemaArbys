@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kyslik\ColumnSortable\Sortable;
+use App\Empleado;
+use App\Vendedor;
+
 
 class Empleado extends Model
 {
@@ -60,7 +63,7 @@ class Empleado extends Model
 
     public function vendedor()
     {
-        return $this->hasOne('App\Vendedor');
+        return $this->hasOne(Vendedor::class);
     }
 
     public function estudios()
