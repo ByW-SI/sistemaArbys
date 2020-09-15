@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Empleado;
+use App\Laboral;
 
 class Vendedor extends Model
 {
@@ -28,7 +30,7 @@ class Vendedor extends Model
 
     public function empleado()
     {
-        return $this->belongsTo('App\Empleado');
+        return $this->belongsTo(Empleado::class);
     }
 
     public function objetivo()

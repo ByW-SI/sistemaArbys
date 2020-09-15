@@ -5,6 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
+use App\Empleado;
+use App\Laboral;
+use App\Vendedor;
+
+
 class Cliente extends Model
 {
     use Sortable;
@@ -34,7 +39,7 @@ class Cliente extends Model
     }
 
     public function vendedor() {
-        return $this->belongsTo('App\Vendedor');
+        return $this->belongsTo(Vendedor::class);
     }
 
     public function transactions() {

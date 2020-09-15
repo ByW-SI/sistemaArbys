@@ -10,12 +10,15 @@ use App\Solicitante;
 use App\Transaction;
 use App\Pago;
 use App\Vendedor;
+use App\Laboral;
+use App\Empleado;
 use Illuminate\Support\Facades\Auth;
 use App\CanalVenta;
 use App\Factories\Empleado\EmpleadoRepositorieFactory;
 use App\Services\Cliente\StoreClienteService;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 use Barryvdh\DomPDF\Facade as PDF;
+use DB;
 
 class ClienteController extends Controller
 {
@@ -174,7 +177,14 @@ class ClienteController extends Controller
         $empleado = Auth::user()->empleado;
         if ($empleado->id == 1) {
             $clientes = Cliente::get();
-            $vendedores = Vendedor::whereNotIn('id', [1])->get();
+            // $vendedores = Vendedor::whereNotIn('id', [1])->get();
+             $vendedores = Vendedor::get();
+             $laborales = DB::table('empleados')->select('id','nombre', 'appaterno','apmaterno')->get();
+               $Lab = $laborales->pluck('id','nombre', 'appaterno','apmaterno');
+               $Datos =Empleado::get();
+             // dd($users);
+            //  $turnoId = Cliente::findOrFail(1);
+            // DD($turnoId->vendedor);
         } else {
             $laborales = $empleado->laborales->last()->oficina->laborales;
             $arr = [];
@@ -190,7 +200,7 @@ class ClienteController extends Controller
                 $arr[] = $vendedor->id;
             $clientes = Cliente::whereIn('vendedor_id', $arr)->get();
         }
-        return view('clientes.asignar.index', ['clientes' => $clientes, 'vendedores' => $vendedores]);
+        return view('clientes.asignar.index', ['clientes' => $clientes, 'vendedores' => $vendedores,'laborales' => $Datos]);
     }
 
     public function asignarPorNotificacion(Cliente $cliente)
