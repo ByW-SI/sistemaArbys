@@ -16,6 +16,7 @@ use App\Http\Controllers\Controller;
 use App\Laboral;
 use App\Repositories\Oficina\OficinaRepositorie;
 use Carbon\Carbon;
+use DB;
 
 
 class VendedorController extends Controller
@@ -94,6 +95,8 @@ class VendedorController extends Controller
             $subgerentes = Subgerente::get();
             $num_grupos = array();
             $grupos_vista = [];
+            $laborales = DB::table('empleados')->select('id','nombre', 'appaterno','apmaterno')->get();
+            
             foreach ($subgerentes as $sub) {
                 $num_grupos[$sub->id] = count(Grupo::where('subgerente_id', $sub->id)->get());
             }
@@ -119,7 +122,7 @@ class VendedorController extends Controller
             }
             return view('vendedores.asignar', ['grupos' => $grupos_vista, 'vendedores' => $vendedores, 'num_grupos' => $num_grupos]);
         }
-        return view('vendedores.asignar', ['grupos' => $grupos, 'vendedores' => $vendedores, 'num_grupos' => $num_grupos]);
+        return view('vendedores.asignar', ['grupos' => $grupos, 'vendedores' => $vendedores, 'num_grupos' => $num_grupos,'laborales' => $laborales]);
     }
 
     public function unir(Request $request)
