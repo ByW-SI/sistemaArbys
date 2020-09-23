@@ -91,7 +91,7 @@ class VendedorController extends Controller
         // SI ES EL USUARIO ADMIN OBTENEMOS TODOS LOS VENDEDORES Y SUBGERENTES
         if ($empleado->id == 1) {
             $grupos = Grupo::get();
-            $vendedores = Vendedor::whereNotIn('id', [1])->get();
+            $vendedores = Vendedor::get();
             $subgerentes = Subgerente::get();
             $num_grupos = array();
             $grupos_vista = [];
@@ -120,8 +120,9 @@ class VendedorController extends Controller
                     $grupos_vista[] = $grupo;
                 }
             }
-            return view('vendedores.asignar', ['grupos' => $grupos_vista, 'vendedores' => $vendedores, 'num_grupos' => $num_grupos]);
+            return view('vendedores.asignar', ['grupos' => $grupos_vista, 'vendedores' => $vendedores, 'num_grupos' => $num_grupos,'laborales' => $laborales]);
         }
+       
         return view('vendedores.asignar', ['grupos' => $grupos, 'vendedores' => $vendedores, 'num_grupos' => $num_grupos,'laborales' => $laborales]);
     }
 

@@ -19,6 +19,7 @@
 					<div class="row">
 						<div class="col-sm-12">
 							@if(count($vendedores) > 0)
+
 								<table id="vendedores" class="table table-stripped table-bordered table-hover" style="margin-bottom: 0px;">
 									<thead>
 										<tr class="info">
@@ -29,11 +30,12 @@
 										</tr>
 									</thead>
 									<tbody>
-								@foreach($laborales as $nombres)		
+								@foreach($laborales as $nombres)	
+
 									@foreach($vendedores as $vendedor)
 										
 										<tr>
-										@if($vendedor->empleado_id = $nombres->id)
+										@if($vendedor->empleado_id == $nombres->id)
 											<td>{{ $nombres->nombre}} {{ $nombres->appaterno}} {{ $nombres->apmaterno}}</td>
 											
 											@if(isset($vendedor->grupo) && isset($vendedor->grupo->subgerente))
@@ -47,7 +49,7 @@
 											
 											
 											<td class="text-center">
-												<input type="radio" name="vendedor_id" value="{{ $vendedor->id }}" required="">
+											<input type="radio" name="vendedor_id" value="{{ $vendedor->id }}" required="">
 											</td>
 										@endif
 										</tr>

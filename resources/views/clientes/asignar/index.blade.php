@@ -19,6 +19,7 @@
 					<div id="vendedores">
 						<div class="row">
 							<div class="col-sm-12">
+								
 								@if(count($vendedores) > 0)
 									<table id="tabla-vendedores" class="table table-stripped table-bordered table-hover" style="margin-bottom: 0px;">
 										<thead>
