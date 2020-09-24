@@ -114,19 +114,17 @@
 			@if($cliente->vendedor)
 			<ul class="nav nav-tabs">
 				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab">
+					<a data-toggle="tab" href="#cot" class="ui-tabs-anchor">Cotización</a>
+				</li>
+				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab">
 					<a data-toggle="tab" href="#dat" class="ui-tabs-anchor">Productos Elegídos</a>
 				</li>
 				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab">
 					<a data-toggle="tab" href="#crm" class="ui-tabs-anchor">CRM</a>
 				</li>
-				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab">
-					<a data-toggle="tab" href="#cot" class="ui-tabs-anchor">Cotización</a>
-				</li>
+				
 				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab">
 					<a data-toggle="tab" href="#pagos" class="ui-tabs-anchor">Pagos</a>
-				</li>
-				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab">
-					<a data-toggle="tab" href="#prestamos" class="ui-tabs-anchor">Préstamos</a>
 				</li>
 				<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab">
 					<a href="{{ route('crm.index') }}" class="ui-tabs-anchor">CRM General</a>

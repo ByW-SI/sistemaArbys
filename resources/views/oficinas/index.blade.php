@@ -24,7 +24,7 @@
 						@if(count($oficinas) > 0)
 							<table class="table table-striped table-bordered table-hover" style="margin-bottom: 0px;">
 								<tr class="info">
-									<th class="col-sm-1">#</th>
+									
 									<th class="col-sm-1">Identificador</th>
 									<th class="col-sm-2">Nombre</th>
 									<th class="col-sm-2">Teléfono</th>
@@ -32,7 +32,7 @@
 								</tr>
 								@foreach($oficinas as $oficina)
 									<tr>
-										<td>{{ $oficina->id }}</td>
+										
 										<td>{{ $oficina->identificador }}</td>
 										<td>{{ $oficina->nombre }}</td>
 										<td>{{ $oficina->telefono1 }}</td>

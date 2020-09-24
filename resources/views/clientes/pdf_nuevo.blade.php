@@ -629,7 +629,7 @@ table th[class*="col-"] {
       <div class="row">
           {{-- FOOTER IZQUIERDO --}}
             <div class="col-xs-6">
-                ASOCIADO: {{$empleado->nombre . " " . $empleado->appaterno . " " . $empleado->apmaterno}}<br>
+                ASOCIADO: {{ucwords($empleado->nombre) . " " . ucwords($empleado->appaterno) . " " . ucwords($empleado->apmaterno)}}<br>
                 CEL: {{$empleado->movil}}<br>
                 E-MAIL: {{$empleado->email}}<br>
             </div>
@@ -644,7 +644,7 @@ table th[class*="col-"] {
   <main>
       {{-- SALUDO --}}
         <div class="panel panel-default">
-            <div class="panel-heading">¡Hola {{$cliente->nombre ? $cliente->nombre." ".$cliente->appaterno." ".$cliente->apmaterno : $cliente->razon}} !</div>
+            <div class="panel-heading">¡Hola {{ucwords($cliente->nombre) ? ucwords($cliente->nombre)." ".ucwords($cliente->appaterno)." ".ucwords($cliente->apmaterno) : $cliente->razon}} !</div>
             <div class="panel-body">
                 Aprovecho esta oportunidad para agradecerle nuevamente 
                 su contacto y ayudarle con su solicitud de información 
