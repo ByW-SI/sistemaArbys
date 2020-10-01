@@ -35,20 +35,23 @@
 					<div class="row">
 						<div class="form-group col-sm-4">
 							<label class="control-label">✱Nombre:</label>
-							<input type="text" name="nombre" class="form-control" required="">
+							<input type="text" name="nombre" class="form-control" required="" value="{{old('nombre')}}">
+							<span class="help-block">{{$errors->first('nombre')}} </span>
 						</div>
 						<div class="form-group col-sm-4">
 							<label class="control-label">✱Estado al que pertenece:</label>
-							<select class="form-control" name="estado_id" required="">
+							<select class="form-control" name="estado_id" required=""  value="{{old('estado_id')}}">
 								<option selected="selected" value="">Seleccionar</option>
 								@foreach($estados as $estado)
 									<option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
 								@endforeach
 							</select>
+							<span class="help-block">{{$errors->first('estado_id')}} </span>
 						</div>
 						<div class="form-group col-sm-1">
 							<label class="control-label">✱identificador:</label>
-							<input type="number" id="identificador" name="identificador" min="0" max="99" class="form-control" required  onchange="if(parseInt(this.value,10)<10)this.value='0'+this.value;">
+							<input type="number" id="identificador" name="identificador" min="0" max="99" class="form-control" required  onchange="if(parseInt(this.value,10)<10)this.value='0'+this.value;" value="{{old('identificador')}}">
+							<span class="help-block">{{$errors->first('identificador')}} </span>
 						</div>
 					</div>
 					<div class="row">
@@ -62,7 +65,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label class="control-label">Descripción:</label>
-							<textarea class="form-control" maxlength="500" rows="3" name="descripcion"></textarea>
+							<textarea class="form-control" maxlength="500" rows="3" name="descripcion" value="{{old('descripcion')}}"></textarea>
 						</div>
 					</div>
 				</div>
@@ -74,47 +77,55 @@
 						<div class="row">
 							<div class="form-group col-sm-3">
 								<label class="control-label">✱Calle:</label>
-								<input type="text" class="form-control" name="calle" required="">
+								<input type="text" class="form-control" name="calle" required="" value="{{old('calle')}}">
+								<span class="help-block">{{$errors->first('calle')}} </span>
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">✱Número Exterior:</label>
-								<input type="maxlength" class="form-control" name="numext" required="">
+								<input type="maxlength" class="form-control" name="numext" required="" value="{{old('numext')}}">
+								<span class="help-block">{{$errors->first('numext')}} </span>
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">Número Interior:</label>
-								<input type="text" class="form-control" name="numint">
+								<input type="text" class="form-control" name="numint" value="{{old('numint')}}">
+								<span class="help-block">{{$errors->first('numint')}} </span>
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">✱Colonia:</label>
-								<input type="text" class="form-control" name="colonia" required="">
+								<input type="text" class="form-control" name="colonia" required="" value="{{old('colonia')}}">
+								<span class="help-block">{{$errors->first('colonia')}} </span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-sm-3">
 								<label class="control-label">✱CP:</label>
-								<input type="text" class="form-control" maxlength="5" name="cp" required="">
+								<input type="text" class="form-control" maxlength="5" name="cp" required="" value="{{old('cp')}}">
+								<span class="help-block">{{$errors->first('cp')}} </span>
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">✱Delegación:</label>
-								<input type="text" class="form-control" name="delegacion" required="">
+								<input type="text" class="form-control" name="delegacion" required="" value="{{old('delegacion')}}">
+								<span class="help-block">{{$errors->first('delegacion')}} </span>
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">✱Ciudad:</label>
-								<input type="text" class="form-control" name="ciudad" required="">
+								<input type="text" class="form-control" name="ciudad" required="" value="{{old('ciudad')}}">
+								<span class="help-block">{{$errors->first('ciudad')}} </span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-3">
 								<label class="control-label">✱Teléfono 1:</label>
-								<input type="text" class="form-control" maxlength="10" name="telefono1" required="">
+								<input type="text" class="form-control" maxlength="10" name="telefono1" required="" value="{{old('telefono1')}}">
+								<span class="help-block">{{$errors->first('telefono1')}} </span>
 							</div>
 							<div class="col-sm-3">
 								<label class="control-label">Teléfono 2:</label>
-								<input type="text" class="form-control" maxlength="10" name="telefono2">
+								<input type="text" class="form-control" maxlength="10" name="telefono2" value="{{old('telefono2')}}">
 							</div>
 							<div class="col-sm-3">
 								<label class="control-label">Teléfono 3:</label>
-								<input type="text" class="form-control" maxlength="10" name="telefono3">
+								<input type="text" class="form-control" maxlength="10" name="telefono3" value="{{old('telefono3')}}">
 							</div>
 						</div>
 					</div>

@@ -684,7 +684,7 @@ table th[class*="col-"] {
             <div class="panel panel-default">
                 <div class="panel-heading">Fecha: {{date('d-m-Y')}}</div>
                 <div class="panel-body">
-                    Estimado {{$cliente->nombre ? $cliente->nombre." ".$cliente->appaterno." ".$cliente->apmaterno : $cliente->razon}}:  <br>
+                    Estimado {{ucwords($cliente->nombre) ? ucwords($cliente->nombre)." ".ucwords($cliente->appaterno)." ".ucwords($cliente->apmaterno) : $cliente->razon}}:  <br>
                     Le presentamos nuestra oferta comercial para {{$producto->tipo == "CARRO" ? 'el carro ' : 'la moto'}} de su interés.
                 </div>
             </div>
