@@ -66,9 +66,28 @@ class OficinaController extends Controller
      */
     public function store(Request $request)
     {
+        // $request->validate([
+            
+        //     'identificador'=>'required|integer',
+        //     'nombre'=>'required|string',
+        //     'calle'=>'required|string|min:2|max:100'
+        //     'numext'=> 'required|integer',
+        //     'cp'=> 'required|integer',
+        //     'delegacion'=>'required|string|min:2|max:100',
+        //     'ciudad'=>'required|string',
+        //     'telefono1'=>'required|integer'
+        // ]);
 
         $validator = Validator::make($request->all(), [
-            'identificador' => 'required|unique:oficinas|max:99',
+             'identificador' => 'required|unique:oficinas|max:99',
+             'nombre'=>'required|string',
+             'calle'=>'required|string|min:2|max:100',
+             'numext'=> 'required|numeric',
+             'cp'=> 'required|numeric',
+             'delegacion'=>'required|string|min:2|max:100',
+             'ciudad'=>'required|string',
+             'colonia'=>'required|string',
+             'telefono1'=>'required|numeric'
         ]);
 
         if ($validator->fails()) {

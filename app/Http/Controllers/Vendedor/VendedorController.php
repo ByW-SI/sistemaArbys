@@ -9,11 +9,11 @@ use App\Subgerente;
 use App\Grupo;
 use App\Region;
 use App\Empleado;
+use App\Laboral;
 use App\Factories\Empleado\EmpleadoRepositorieFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Laboral;
 use App\Repositories\Oficina\OficinaRepositorie;
 use Carbon\Carbon;
 use DB;
@@ -101,7 +101,8 @@ class VendedorController extends Controller
                 $num_grupos[$sub->id] = count(Grupo::where('subgerente_id', $sub->id)->get());
             }
         } else {
-            $laborales = $empleado->laborales->last()->oficina->laborales;
+            // $laborales = $empleado->laborales->last()->oficina->laborales;
+           
             $arr = [];
 
             foreach ($laborales as $laboral)
