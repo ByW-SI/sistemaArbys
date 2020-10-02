@@ -49,8 +49,10 @@
 							<span class="help-block">{{$errors->first('estado_id')}} </span>
 						</div>
 						<div class="form-group col-sm-1">
-							<label class="control-label">✱identificador:</label>
-							<input type="number" id="identificador" name="identificador" min="0" max="99" class="form-control" required  onchange="if(parseInt(this.value,10)<10)this.value='0'+this.value;" value="{{old('identificador')}}">
+							<?php 
+								$identi=$last_id->id+1;
+							 ?>
+							<input type="hidden" id="identificador" name="identificador" min="0" max="99" class="form-control" required  onchange="if(parseInt(this.value,10)<10)this.value='0'+this.value;" value="{{$identi}}" 	>
 							<span class="help-block">{{$errors->first('identificador')}} </span>
 						</div>
 					</div>
