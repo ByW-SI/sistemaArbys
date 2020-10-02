@@ -10,6 +10,7 @@ use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Http\Controllers\Controller;
 use App\Transaction;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class OficinaController extends Controller
 {
@@ -53,7 +54,9 @@ class OficinaController extends Controller
     {
         if ($this->hasComponent('crear oficina')) {
             $estados = Estado::get();
-            return view('oficinas.create', ['estados' => $estados]);
+            $ofi_id = DB::table('oficinas')->orderBy('id', 'desc')->first();
+            // $ofi_id->id+1;
+            return view('oficinas.create', ['estados' => $estados,'last_id'=>$ofi_id]);
         }
         return redirect()->route('denegado');
     }
