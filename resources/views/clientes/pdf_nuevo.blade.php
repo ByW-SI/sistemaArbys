@@ -614,7 +614,14 @@ table th[class*="col-"] {
 	width:100%;
 	height: 100%;
 }
-
+.marca_agua{
+  position: absolute;
+  opacity: 0.1;
+  -moz-transform: rotate(-10deg);
+     -o-transform: rotate(-10deg);
+     -webkit-transform: rotate(-10deg);
+     transform: rotate(-10deg);
+}
 
 .text-center{
   text-align: center !important;
@@ -672,6 +679,9 @@ table th[class*="col-"] {
 
                 ¡Gracias por permitirnos atenderle!<br>
                 Excelente Día.<br>
+            </div>
+            <div class="marca_agua">
+              <img class="img" src="img/arbys.png">
             </div>
             <div class="panel-body">
               <span>{{$mensaje}}</span>
@@ -773,24 +783,24 @@ table th[class*="col-"] {
                                 Mensualidad
                             </td>
                             @if (isset($request['60_meses'])  && $producto->tipo =="CARRO")
-                                <td>$ {{$producto->m60}}</td>
-                                <td>$ {{$producto->m60}}</td>
+                                <td>$ {{round($producto->m60,2)}}</td>
+                                <td>$ {{round($producto->m60,2)}}</td>
                             @endif
                             @if (isset($request['48_meses']))
-                                <td>$ {{$producto->m48}}</td>
-                                <td>$ {{$producto->m48}}</td>
+                                <td>$ {{round($producto->m48,2)}}</td>
+                                <td>$ {{round($producto->m48,2)}}</td>
                             @endif
                             @if (isset($request['36_meses']))
-                                <td>$ {{$producto->m36}}</td>
-                                <td>$ {{$producto->m36}}</td>
+                                <td>$ {{round($producto->m36,2)}}</td>
+                                <td>$ {{round($producto->m36,2)}}</td>
                             @endif
                             @if (isset($request['24_meses']))
-                                <td>$ {{$producto->m24}}</td>
-                                <td>$ {{$producto->m24}}</td>
+                                <td>$ {{round($producto->m24,2)}}</td>
+                                <td>$ {{round($producto->m24,2)}}</td>
                             @endif
                             @if (isset($request['12_meses']) && $producto->tipo =="MOTO" )
-                                <td>$ {{$producto->m12}}</td>
-                                <td>$ {{$producto->m12}}</td>
+                                <td>$ {{round($producto->m12,2)}}</td>
+                                <td>$ {{round($producto->m12,2)}}</td>
                             @endif
                         </tr>
                         <tr>
@@ -798,24 +808,24 @@ table th[class*="col-"] {
                                 Apertura
                             </td>
                             @if (isset($request['60_meses'])  && $producto->tipo =="CARRO")
-                                <td>$ {{$producto->apertura}}</td>
-                                <td>$ {{$producto->apertura}}</td>
+                                <td>$ {{round($producto->apertura,2)}}</td>
+                                <td>$ {{round($producto->apertura,2)}}</td>
                             @endif
                             @if (isset($request['48_meses']))
-                                <td>$ {{$producto->apertura}}</td>
-                                <td>$ {{$producto->apertura}}</td>
+                                <td>$ {{round($producto->apertura,2)}}</td>
+                                <td>$ {{round($producto->apertura,2)}}</td>
                             @endif
                             @if (isset($request['36_meses']))
-                                <td>$ {{$producto->apertura}}</td>
-                                <td>$ {{$producto->apertura}}</td>
+                                <td>$ {{round($producto->apertura,2)}}</td>
+                                <td>$ {{round($producto->apertura,2)}}</td>
                             @endif
                             @if (isset($request['24_meses']))
-                                <td>$ {{$producto->apertura}}</td>
-                                <td>$ {{$producto->apertura}}</td>
+                                <td>$ {{round($producto->apertura,2)}}</td>
+                                <td>$ {{round($producto->apertura,2)}}</td>
                             @endif
                             @if (isset($request['12_meses']) && $producto->tipo =="MOTO" )
-                                <td>$ {{$producto->apertura}}</td>
-                                <td>$ {{$producto->apertura}}</td>
+                                <td>$ {{round($producto->apertura,2)}}</td>
+                                <td>$ {{round($producto->apertura,2)}}</td>
                             @endif
                         </tr>
                         <tr>
@@ -823,24 +833,24 @@ table th[class*="col-"] {
                                 Pago Inicial
                             </td>
                             @if (isset($request['60_meses'])  && $producto->tipo =="CARRO")
-                                <td>$ {{$producto->m60+$producto->apertura}}</td>
-                                <td>$ {{($producto->precio_lista * 0.30)+$producto->apertura}}</td>
+                                <td>$ {{round($producto->m60+$producto->apertura,2)}}</td>
+                                <td>$ {{round(($producto->precio_lista * 0.30)+$producto->apertura,2)}}</td>
                             @endif
                             @if (isset($request['48_meses']))
-                                <td>$ {{$producto->m48+$producto->apertura}}</td>
-                                <td>$ {{($producto->precio_lista * 0.30)+$producto->apertura}}</td>
+                                <td>$ {{round($producto->m48+$producto->apertura,2)}}</td>
+                                <td>$ {{round(($producto->precio_lista * 0.30)+$producto->apertura,2)}}</td>
                             @endif
                             @if (isset($request['36_meses']))
-                                <td>$ {{$producto->m36+$producto->apertura}}</td>
-                                <td>$ {{($producto->precio_lista * 0.30)+$producto->apertura}}</td>
+                                <td>$ {{round($producto->m36+$producto->apertura,2)}}</td>
+                                <td>$ {{round(($producto->precio_lista * 0.30)+$producto->apertura,2)}}</td>
                             @endif
                             @if (isset($request['24_meses']))
-                                <td>$ {{$producto->m24+$producto->apertura}}</td>
-                                <td>$ {{($producto->precio_lista * 0.30)+$producto->apertura}}</td>
+                                <td>$ {{round($producto->m24+$producto->apertura,2)}}</td>
+                                <td>$ {{round(($producto->precio_lista * 0.30)+$producto->apertura,2)}}</td>
                             @endif
                             @if (isset($request['12_meses']) && $producto->tipo =="MOTO" )
-                                <td>$ {{$producto->m12+$producto->apertura}}</td>
-                                <td>$ {{($producto->precio_lista * 0.30)+$producto->apertura}}</td>
+                                <td>$ {{round($producto->m12+$producto->apertura,2)}}</td>
+                                <td>$ {{round(($producto->precio_lista * 0.30)+$producto->apertura,2)}}</td>
                             @endif
                         </tr>
                         <tr>
@@ -856,7 +866,7 @@ table th[class*="col-"] {
                                 <td>1 mes</td>
                             @endif
                             @if (isset($request['36_meses']))
-                                <td>{{ceil(($producto->precio_lista * 0.30)/$producto->m36)}} meses</td>
+                                <td>{{round(ceil(($producto->precio_lista * 0.30)/$producto->m36),2)}} meses</td>
                                 <td>1 mes</td>
                             @endif
                             @if (isset($request['24_meses']))
@@ -872,6 +882,9 @@ table th[class*="col-"] {
                 </table>
             </div>
 
+            <div class="marca_agua">
+              <img class="img" src="img/arbys.png">
+            </div>
 
             <div class="row">
                 <div class="col-xs-5">
