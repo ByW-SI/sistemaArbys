@@ -29,7 +29,7 @@
 						</div>
 						<div id="fisica">
 							<div class="col-sm-6 col-md-4 form-group">
-								<label class="control-label">✱Nombre</label>
+								<label class="control-label">✱Nombre(s)</label>
 								<input type="text" class="form-control rfc" name="nombre" id="nombre" onchange="calcularRFC();">
 							</div>
 							<div class="col-sm-6 col-md-4 form-group">

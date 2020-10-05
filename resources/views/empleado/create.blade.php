@@ -30,7 +30,7 @@
 				<div class="panel-body">
 					<div class="row">
 						<div @if($errors->has('nombre'))class="form-group col-sm-3 has-error"@else class="form-group col-sm-3"@endif>
-							<label class="control-label" for="nombre">✱Nombre:</label>
+							<label class="control-label" for="nombre">✱Nombre(s):</label>
 							<input type="text" class="form-control" name="nombre" required="" id="nombre" onchange="calcularRFC();" value="{{ old('nombre') }}">
 							@if($errors->has('nombre'))
 								<label class="control-label">{{ $errors->first('nombre') }}</label>
@@ -79,7 +79,7 @@
 							@endif
 						</div>
 						<div class="form-group col-sm-3">
-							<label class="control-label" for="telefono">Teléfono:</label>
+							<label class="control-label" for="telefono">Teléfono fijo:</label>
 							<input type="text" class="form-control" name="telefono" value="{{ old('telefono') }}">
 							
 						</div>
