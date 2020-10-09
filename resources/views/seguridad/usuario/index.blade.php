@@ -13,7 +13,7 @@
                     @if($componente->nombre == 'crear usuario')
                     <div class="col-sm-4 text-center">
                         <a class="btn btn-success" href="{{ route('usuarios.create') }}">
-                            <i class="fa fa-plus"></i><strong> Agregar Usuario</strong>
+                            <i class="fa fa-plus"></i><strong> Agregar Usuario:</strong>
                         </a>
                     </div>
                     @endif
