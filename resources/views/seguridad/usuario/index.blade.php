@@ -46,7 +46,7 @@
                                     <td>{{ !$usuario->empleado ? '' : $usuario->empleado->appaterno . ' ' . $usuario->empleado->apmaterno}}
                                     </td>
                                     <td>{{ $usuario->email }}</td>
-                                    <td>{{ !$usuario->empleado ? '' : $usuario->empleado->laborales->last()->puesto->nombre }}
+                                    <td>Puesto de usuario
                                     </td>
                                     <td class="text-center">
                                         @foreach(Auth::user()->perfil->componentes as $componente)
