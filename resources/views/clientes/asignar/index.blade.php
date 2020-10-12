@@ -119,11 +119,11 @@
 </div>
 
 @endsection
+
 @section('scripts')
 <script>
-	$(document).ready( function () {
-	    $('#tabla-vendedores').DataTable();
-	    $('#tabla-clientes').DataTable();
-	} );
+    $(document).ready( function () {
+        $('#tabla-clientes').DataTable();
+    } );
 </script>
 @endsection
