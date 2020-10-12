@@ -103,7 +103,7 @@
 @section('scripts')
 <script>
     $(document).ready( function () {
-	    $('#tablaUsuarios').DataTable();
-	} );
+        $('#tablaUsuarios').DataTable();
+    } );
 </script>
 @endsection
