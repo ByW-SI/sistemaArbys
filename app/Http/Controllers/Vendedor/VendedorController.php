@@ -101,8 +101,7 @@ class VendedorController extends Controller
                 $num_grupos[$sub->id] = count(Grupo::where('subgerente_id', $sub->id)->get());
             }
         } else {
-             $laborales = $empleado->laborales->last();
-             dd($laborales);
+             $laborales = $empleado->laborales->last()->oficina->laborales;
            
             $arr = [];
 
