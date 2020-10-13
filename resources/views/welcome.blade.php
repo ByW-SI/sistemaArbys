@@ -135,7 +135,7 @@
                                 </li>
                                 @endif
                                 @endforeach
-                                @if( Auth::user()->id == 1 || Auth::user()->id <99 ||
+                                @if( Auth::user()->id == 1 || 
                                 Auth::user()->perfil->componentes()->where('nombre','asignar cliente')->first() )
                                 <li>
                                     <a href="#"
