@@ -186,7 +186,8 @@ class ClienteController extends Controller
             //  $turnoId = Cliente::findOrFail(1);
             // DD($turnoId->vendedor);
         } else {
-            $laborales = $empleado->laborales->last()->oficina->laborales;
+            //$laborales = $empleado->laborales->last()->oficina->laborales;
+            $laborales = Laboral::find($empleado->id)->get();
             $arr = [];
             foreach ($laborales as $laboral)
                 $arr[] = $laboral->empleado;
@@ -200,7 +201,7 @@ class ClienteController extends Controller
                 $arr[] = $vendedor->id;
             $clientes = Cliente::whereIn('vendedor_id', $arr)->get();
         }
-        return view('clientes.asignar.index', ['clientes' => $clientes, 'vendedores' => $vendedores,'laborales' => $Datos]);
+        return view('clientes.asignar.index', ['clientes' => $clientes, 'vendedores' => $vendedores,'laborales' => $laborales]);
     }
 
     public function asignarPorNotificacion(Cliente $cliente)
