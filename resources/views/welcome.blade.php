@@ -136,12 +136,15 @@
                                 @endif
                                 @endforeach
                                 @if( Auth::user()->id == 1 || 
-                                Auth::user()->perfil->componentes()->where('nombre','asignar cliente')->first() )
+                                Auth::user()->perfil->componentes()->where('nombre','asignar cliente')->first())
                                 <li>
                                     <a href="#"
                                         onclick="AgregarNuevoTab('{{ url('/asignarClientes') }}', 'Asignar Clientes')">
                                         <i class="fa fa-user-plus"></i> Asignar Clientes
                                     </a>
+                                </li>
+                                <li>
+                                    <a href="#"> {{Auth::user()->perfil->componentes()->where('nombre','asignar cliente')->first()}} </a>
                                 </li>
                                 @endif
                             </ul>
