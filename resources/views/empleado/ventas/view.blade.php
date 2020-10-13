@@ -37,12 +37,12 @@
 								<input class="form-control" type="date" name="fecha" id="fecha" value="{{ date("Y-m-d") }}" readonly="">
 							</div>
 							<div class="form-group col-sm-3">
-								<label class="control-label">Objetivo Cliente:</label>
-								<input class="form-control" type="number" name="num_clientes" id="num_clientes">
+								<label class="control-label">Objetivo prospectos:</label>
+								<input class="form-control" type="number" name="num_clientes" id="num_clientes" value="60">
 							</div>
 							<div class="form-group col-sm-3">
 								<label class="control-label">Objetivo venta:</label>
-								<input class="form-control" type="number" name="venta" id="venta">
+								<input class="form-control" type="number" name="venta" id="venta" value="6">
 							</div>
 						</div>
 					</div>
@@ -74,18 +74,18 @@
 		  					<thead>
 		  						<tr class="info">
 		  							<th class="col-sm-4">Fecha:</th>
-		  							<th class="col-sm-4">Objetivo Cliente:</th>
+		  							<th class="col-sm-4">Objetivo Prospectos:</th>
 		  							<th class="col-sm-4">Objetivo Venta:</th>
 		  						</tr>
 		  					</thead>
-	  						<tbody id="cuerpo">
-	  							@foreach($objetivos as $objetivo)
+	  						<tbody id="cuerpo">	
 				  					<tr>
-										<td>{{ $objetivo->fecha }}</td>
-				  						<td>{{ $objetivo->num_clientes }}</td>
-				  						<td>{{ number_format($objetivo->ventas) }}</td>
+										<td>{{ $objetivos->last()->fecha}}</td>
+				  						<td>{{ $objetivos->last()->num_clientes}}</td>
+				  						<td>{{ number_format($objetivos->last()->ventas) }}</td>
 				  					</tr>
-								@endforeach
+				  					
+								
 							</tbody>
 		  				</table>
 		  			@else
@@ -116,14 +116,16 @@
 			}).done(function (data) {				
 				var contenido = '';
 				$.each(data.objetivos, function( index, value ) {
-				   contenido += `<tr><td>${value.fecha}</td><td>${value.num_clientes}</td><td>${value.ventas}</td></tr>`;
+				   contenido = `<tr><td>${value.fecha}</td><td>${value.num_clientes}</td><td>${value.ventas}</td></tr>`;
 				});
+
+
 				$('#div-tabla').empty()
 				var tabla = `<table class="table table-bordered table-hover table-stripped">
 		  					<thead>
 		  						<tr class="info">
 		  							<th class="col-sm-4">Fecha:</th>
-		  							<th class="col-sm-4">Objetivo Cliente:</th>
+		  							<th class="col-sm-4">Objetivo Prospectos:</th>
 		  							<th class="col-sm-4">Objetivo Venta:</th>
 		  						</tr>
 		  					</thead>
