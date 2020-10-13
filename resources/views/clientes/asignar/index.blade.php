@@ -71,7 +71,7 @@
 										<tr class="info">
 											<th>Nombre</th>
 											<th>Vendedor</th>
-											<th class="col-sm-1">Seleccionar</th>
+											<th>Seleccionar</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -81,7 +81,7 @@
 											@if($cliente->vendedor_id)
 											@foreach($laborales as $nombres)
 													@if($nombres->id == $cliente->vendedor->empleado_id)
-										<td>{{$nombres->nombre}} {{$nombres->appaterno}} {{$nombres->apmaterno}}</td>	
+													<td>{{$nombres->nombre}} {{$nombres->appaterno}} {{$nombres->apmaterno}}</td>	
 													@endif
 												@endforeach
 											
@@ -117,11 +117,13 @@
 		</form>
 	</div>
 </div>
+
+@endsection
+
+@section('scripts')
 <script>
     $(document).ready( function () {
         $('#tabla-clientes').DataTable();
     } );
 </script>
-
 @endsection
-
