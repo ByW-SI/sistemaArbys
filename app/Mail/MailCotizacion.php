@@ -14,6 +14,7 @@ class MailCotizacion extends Mailable
 
     public $transaction;
     public $pdf;
+    public $master;
     /**
      * Create a new message instance.
      *
@@ -23,6 +24,7 @@ class MailCotizacion extends Mailable
     {
         $this->transaction = $transaction;
         $this->pdf = $pdf;
+       
     }
 
     /**
@@ -32,7 +34,9 @@ class MailCotizacion extends Mailable
      */
     public function build()
     {
-        return $this->from($this->transaction->cliente->vendedor->empleado->email)
+        $master = "noreply@planarbys.com";
+        //ESTE ES EL MAIL DEL VENDEDOR EN CASO DE QUERER USARLO PARA OTRO CASO $this->transaction->cliente->vendedor->empleado->email
+        return $this->from($master)
                     ->markdown('mail.transaction')
                     ->attachData($this->pdf->output(), 'cotizacion'.date('d-m-Y')." ". $this->transaction->cliente->tipo == "Moral" ? $this->transaction->cliente->razon:$this->transaction->cliente->nombre.'.pdf', [
                         'mime' => 'application/pdf',
