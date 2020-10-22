@@ -36,7 +36,7 @@
 										
 										<tr>
 										@if($vendedor->empleado_id == $nombres->id)
-											<td>{{ $nombres->nombre}} {{ $nombres->appaterno}} {{ $nombres->apmaterno}}</td>
+											<td>{{$nombres->nombre}} {{ $nombres->appaterno}} {{ $nombres->apmaterno}}</td>
 											
 											@if(isset($vendedor->grupo) && isset($vendedor->grupo->subgerente))
 												<td>{{ $vendedor->grupo->nombre }}</td>

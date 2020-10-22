@@ -24,6 +24,7 @@
 										<th class="text-center">Ventas</th>						
 										<th class="text-center">Clientes</th>
 										<th class="col-sm-1">Acción</th>
+										<th class="text-center">Shit</th>
 									</tr>
 									@php
 										$ventas_totales = 0;	
@@ -76,7 +77,7 @@
 								<div class="col-sm-8 col-sm-offset-4">
 									<table class="table table-stripped table-bordered table-hover">
 										<tr>
-											<td>Total clientes</td>
+											<td>Total prospectos</td>
 											<td>Total ventas</td>
 										</tr>
 										<tr>	

@@ -101,27 +101,32 @@ class VendedorController extends Controller
                 $num_grupos[$sub->id] = count(Grupo::where('subgerente_id', $sub->id)->get());
             }
         } else {
-             //$laborales = $empleado->laborales->last()->oficina->laborales; 
-            $laborales = Laboral::find($empleado->id)->get();
-            $arr = [];
-
-            foreach ($laborales as $laboral)
-                $arr[$laboral->empleado_id] = $laboral->empleado;
-            $vendedores = [];
-
-            foreach ($arr as $emp) {
-                if (isset($emp->vendedor))
-                    $vendedores[] = $emp->vendedor;
-            }
-            $num_grupos = [];
+             $grupos = Grupo::get();
+            $vendedores = Vendedor::get();
             $subgerentes = Subgerente::get();
+            $num_grupos = array();
+            $grupos_vista = [];
+            $laborales = DB::table('empleados')->select('id','nombre', 'appaterno','apmaterno')->get();
+            
             foreach ($subgerentes as $sub) {
                 $num_grupos[$sub->id] = count(Grupo::where('subgerente_id', $sub->id)->get());
-                foreach ($sub->grupos as $grupo) {
-                    $grupos_vista[] = $grupo;
-                }
             }
-            return view('vendedores.asignar', ['grupos' => $grupos_vista, 'vendedores' => $vendedores, 'num_grupos' => $num_grupos,'laborales' => $laborales]);
+            return view('vendedores.asignar', ['grupos' => $grupos, 'vendedores' => $vendedores, 'num_grupos' => $num_grupos,'laborales' => $laborales]);
+            //  //$laborales = $empleado->laborales->last()->oficina->laborales; 
+            // $laborales = Laboral::get();
+            // $labor = DB::table('empleados')->select('id','nombre', 'appaterno','apmaterno')->get();
+            
+            // $arr = [];
+
+            // $num_grupos = [];
+            // $subgerentes = Subgerente::get();
+            // foreach ($subgerentes as $sub) {
+            //     $num_grupos[$sub->id] = count(Grupo::where('subgerente_id', $sub->id)->get());
+            //     foreach ($sub->grupos as $grupo) {
+            //         $grupos_vista[] = $grupo;
+            //     }
+            // }
+            // return view('vendedores.asignar', ['grupos' => $grupos_vista, 'vendedores' => $vendedores, 'num_grupos' => $num_grupos,'laborales' => $laborales,'lab' =>$labor]);
         }
        
         return view('vendedores.asignar', ['grupos' => $grupos, 'vendedores' => $vendedores, 'num_grupos' => $num_grupos,'laborales' => $laborales]);
