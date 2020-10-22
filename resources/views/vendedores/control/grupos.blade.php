@@ -1,4 +1,4 @@
-<div class="container">
+	<div class="container">
 	<div class="panel panel-group">
 		{{-- @include('vendedores.control.head')
 		<ul class="nav nav-tabs nav-justified">
