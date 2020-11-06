@@ -15,7 +15,7 @@
 								<a href="{{ route('oficinas.index') }}"><button class="btn btn-primary"><strong><i class="fa fa-eye" aria-hidden="true"></i> Ver Oficinas</strong></button></a>
 							</div>
 							<div class="col-sm-4 text-center">
-							
+							@if($componente->nombre == 'eliminar oficinas')
 								<td class="text-center">
 												<form action="{{ route('oficinas.destroy',['id' => $oficina->id])}}" style="display: inline;" method="post">
 													{{ csrf_field() }}
@@ -26,6 +26,7 @@
 												</form>
 								</td>
 							</div>
+							@endif
 						@endif
 					@endforeach
 				</div>
