@@ -36,7 +36,7 @@ class MailCotizacion extends Mailable
     {
         $master = "noreply@planarbys.com";
         //ESTE ES EL MAIL DEL VENDEDOR EN CASO DE QUERER USARLO PARA OTRO CASO $this->transaction->cliente->vendedor->empleado->email
-        return $this->from($master)
+        return $this->from($master,"Cotización Arbys")
                     ->markdown('mail.transaction')
                     ->attachData($this->pdf->output(), 'cotizacion'.date('d-m-Y')." ". $this->transaction->cliente->tipo == "Moral" ? $this->transaction->cliente->razon:$this->transaction->cliente->nombre.'.pdf', [
                         'mime' => 'application/pdf',
