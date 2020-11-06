@@ -134,6 +134,14 @@
                                     </a>
                                 </li>
                                 @endif
+                                @if($c->nombre == "asignar cliente")
+                                <li>
+                                    <a href="#"
+                                        onclick="AgregarNuevoTab('{{ url('/asignarClientes')}}','asignar Cliente')">
+                                        <i class="fa fa-plus"></i> asignar
+                                    </a>
+                                </li>
+                                @endif
                                 @endforeach
                                 @if( Auth::user()->id == 1 || 
                                 Auth::user()->perfil->componentes()->where('nombre','asignar cliente')->first())
@@ -141,14 +149,6 @@
                                     <a href="#"
                                         onclick="AgregarNuevoTab('{{ url('/asignarClientes') }}', 'Asignar Clientes')">
                                         <i class="fa fa-user-plus"></i> asignar Clientes
-                                    </a>
-                                </li>
-                                @endif
-                                @if(Auth::user()->perfil->componentes()->where('nombre','asignar cliente')->first())
-                                <li>
-                                    <a href="#"
-                                        onclick="AgregarNuevoTab('{{ url('/asignarClientes') }}', 'Asignar Clientes')">
-                                        <i class="fa fa-user-plus"></i> asignar Clientes Prueba
                                     </a>
                                 </li>
                                 @endif
