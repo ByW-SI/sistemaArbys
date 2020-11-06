@@ -5,7 +5,7 @@
 		<ul class="nav nav-pills nav-justified">
 			<li role="presentation" class=""><a href="{{ route('empleados.show',['empleado'=>$empleado]) }}"  class="ui-tabs-anchor">Generales:</a></li>
 
-			<li role="presentation" class=""><a href="{{ route('empleados.datoslaborales.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Laborales:</a></li>
+			<li role="presentation" class=""><a href="{{ route('empleados.laborals.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Laborales:</a></li>
 
 			@if(count($empleado->laborales) > 0 && $empleado->laborales->last()->puesto->nombre == "Vendedor")
 				<li role="presentation" class=""><a href="{{ route('empleados.objetivos.index', ['empleado' => $empleado]) }}" class="ui-tabs-anchor">Ventas:</a></li>
