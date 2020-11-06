@@ -134,7 +134,7 @@
                                     </a>
                                 </li>
                                 @endif
-                                @if($c->nombre == "asignar cliente")
+                                @if($c->nombre == "asignar clientes")
                                 <li>
                                     <a href="#"
                                         onclick="AgregarNuevoTab('{{ url('/asignarClientes')}}','asignar Cliente')">
