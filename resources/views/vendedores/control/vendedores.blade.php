@@ -53,11 +53,10 @@
 														
 														if( $transaction->status == 'pagando' || $transaction->status == 'finalizado'){
 															$ventas_vendedor[] = $transactions;
-															$num_ventas++;
+															
 														}
 
 													}
-													$num_ventas =0;
 													$ventas_totales += count($ventas_vendedor);
 													echo count($ventas_vendedor);
 
@@ -78,7 +77,6 @@
 									<table class="table table-stripped table-bordered table-hover">
 										<tr>
 											<td>Total prospectos</td>
-											<td>Total $ventas</td>
 											<td>Numero de ventas</td>
 										</tr>
 										<tr>	
@@ -93,8 +91,7 @@
 											@endphp
 
 										</td>
-											<td id="total_ventas">{{$ventas_totales}}</td>
-											<td id="num_ventas">{{$num_ventas}}</td>												
+											<td id="Numero de ventas">{{$ventas_totales}}</td>											
 										</tr>
 									</table>
 								</div>
