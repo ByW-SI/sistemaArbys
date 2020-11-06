@@ -101,7 +101,7 @@ class VendedorController extends Controller
                 $num_grupos[$sub->id] = count(Grupo::where('subgerente_id', $sub->id)->get());
             }
         } else {
-             $grupos = Grupo::get();
+            $grupos = Grupo::get();
             $vendedores = Vendedor::get();
             $subgerentes = Subgerente::get();
             $num_grupos = array();
