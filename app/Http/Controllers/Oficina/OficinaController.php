@@ -163,7 +163,15 @@ class OficinaController extends Controller
     public function destroy($id)
     {
         //
+         // dd("Estoy eliminando clientes");
+          $oficina = Oficina::find($id);
+          $oficina->delete();
+         return redirect()->route('oficinas.index');
+
     }
+
+
+   
 
     public function getCurrentFolio(Oficina $oficina){
 
