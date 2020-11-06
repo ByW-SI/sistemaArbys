@@ -144,6 +144,14 @@
                                     </a>
                                 </li>
                                 @endif
+                                @if(Auth::user()->perfil->componentes()->where('nombre','asignar cliente')->first())
+                                <li>
+                                    <a href="#"
+                                        onclick="AgregarNuevoTab('{{ url('/asignarClientes') }}', 'Asignar Clientes')">
+                                        <i class="fa fa-user-plus"></i> asignar Clientes Prueba
+                                    </a>
+                                </li>
+                                @endif
                             </ul>
                         </li>
                         @break
