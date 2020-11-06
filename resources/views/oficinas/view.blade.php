@@ -14,6 +14,18 @@
 							<div class="col-sm-4 text-center">
 								<a href="{{ route('oficinas.index') }}"><button class="btn btn-primary"><strong><i class="fa fa-eye" aria-hidden="true"></i> Ver Oficinas</strong></button></a>
 							</div>
+							<div class="col-sm-4 text-center">
+							
+								<td class="text-center">
+												<form action="{{ route('oficinas.destroy',['id' => $oficina->id])}}" style="display: inline;" method="post">
+													{{ csrf_field() }}
+													<input type="hidden" name="_method" value="DELETE">
+													<button type="submit" class="btn btn-danger btn-sm">
+														<i class="fa fa-trash"></i> Eliminar oficina
+													</button>
+												</form>
+								</td>
+							</div>
 						@endif
 					@endforeach
 				</div>

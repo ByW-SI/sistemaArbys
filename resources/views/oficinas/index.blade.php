@@ -48,6 +48,15 @@
 														<i class="fa fa-pencil" aria-hidden="true"></i><strong> Editar</strong>
 													</a>
 												@endif
+												@if($componente->nombre == 'eliminar oficina')
+													<form action="{{ route('oficinas.destroy',['id' => $oficina->id])}}" style="display: inline;" method="post">
+													{{ csrf_field() }}
+													<input type="hidden" name="_method" value="DELETE">
+													<button type="submit" class="btn btn-danger btn-sm">
+														<i class="fa fa-trash"></i> Eliminar oficina
+													</button>
+												</form>
+												@endif
 											@endforeach
 										</td>
 									</tr>

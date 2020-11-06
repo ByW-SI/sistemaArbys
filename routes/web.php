@@ -178,6 +178,7 @@ Route::get('estado/{estado}','Estado\EstadoController@region');
 Route::resource('oficinas', 'Oficina\OficinaController');
 Route::resource('puntoDeVenta', 'PuntoDeVenta\PuntoDeVentaController');
 
+
 Route::get('getCurrentFolio/{oficina}', 'Oficina\OficinaController@getCurrentFolio');
 
 // SEGURIDAD
