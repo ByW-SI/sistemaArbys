@@ -187,9 +187,10 @@ class ClienteController extends Controller
             // DD($turnoId->vendedor);
         } else {
             //$laborales = $empleado->laborales->last()->oficina->laborales;
-            $laborales = Laboral::find($empleado->id)->get();
+            $laboraless = Laboral::find($empleado->id)->get();
+            $laborales = DB::table('empleados')->select('id','nombre', 'appaterno','apmaterno')->get();
             $arr = [];
-            foreach ($laborales as $laboral)
+            foreach ($laboraless as $laboral)
                 $arr[] = $laboral->empleado;
             $arr = array_unique($arr);
             $vendedores = [];
@@ -200,6 +201,9 @@ class ClienteController extends Controller
             foreach ($vendedores as $vendedor)
                 $arr[] = $vendedor->id;
             $clientes = Cliente::whereIn('vendedor_id', $arr)->get();
+
+            return view('clientes.asignar.index', ['clientes' => $clientes, 'vendedores' => $vendedores,'laborales' => $laborales]);
+
         }
         return view('clientes.asignar.index', ['clientes' => $clientes, 'vendedores' => $vendedores,'laborales' => $laborales]);
     }
