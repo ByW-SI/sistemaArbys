@@ -133,8 +133,10 @@
                                         <i class="fa fa-search"></i> Búsqueda
                                     </a>
                                 </li>
-                                @endif  
-                                @if($c->nombre == "asignar cliente")
+                                @endif
+                                @endforeach
+                                @if( Auth::user()->id == 1 || 
+                                Auth::user()->perfil->componentes()->where('nombre','asignar cliente')->first())
                                 <li>
                                     <a href="#"
                                         onclick="AgregarNuevoTab('{{ url('/asignarClientes') }}', 'Asignar Clientes')">
@@ -142,7 +144,6 @@
                                     </a>
                                 </li>
                                 @endif
-                                @endforeach
                             </ul>
                         </li>
                         @break
