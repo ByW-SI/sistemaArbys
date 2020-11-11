@@ -122,10 +122,10 @@ class OficinaController extends Controller
             // $oficina->archivo_agua = $name_2;
             // $oficina->archivo_luz = $name_3;
             
-            $oficina->archivo_telefono = Storage::disk('local')->put('public/contrato_telefono', $request->archivo_telefono);
-            $oficina->archivo_luz = Storage::disk('local')->put('public/contrato_luz', $request->archivo_luz);
+            $oficina->archivo_telefono = Storage::disk('local')->put('contrato_telefono', $request->archivo_telefono);
+            $oficina->archivo_luz = Storage::disk('local')->put('contrato_luz', $request->archivo_luz);
 
-            $oficina->archivo_agua = Storage::disk('local')->put('public/contrato_agua', $request->archivo_agua);
+            $oficina->archivo_agua = Storage::disk('local')->put('contrato_agua', $request->archivo_agua);
              $oficina->save();
             return redirect()->route('oficinas.show', ['oficina' => $oficina]);
         }
