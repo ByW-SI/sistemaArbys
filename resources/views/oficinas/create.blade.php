@@ -152,7 +152,7 @@
 
 
 							<label for="contrato_telefono">CONTRATO DE TELEFONO</label>
-							<input type="file" name="contrato_telefono">
+							<input type="file" name="archivo_telefono">
 						</div>
 					</div>
 					
