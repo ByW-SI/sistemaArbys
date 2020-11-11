@@ -106,9 +106,9 @@ class OficinaController extends Controller
 
         if ($this->hasComponent('crear oficina')) {
             $oficina = Oficina::create($request->all());
-            $oficina = Storage::disk('local')->put('contrato_telefono', $request->contrato_telefono);
-            $oficina = Storage::disk('local')->put('contrato_luz', $request->contrato_luz);
-            $oficina = Storage::disk('local')->put('contrato_agua', $request->contrato_agua);
+            $oficina->contrato_telefono = Storage::disk('local')->put('contrato_telefono', $request->contrato_telefono);
+            $oficina->contrato_luz = Storage::disk('local')->put('contrato_luz', $request->contrato_luz);
+            $oficina->contrato_agua = Storage::disk('local')->put('contrato_agua', $request->contrato_agua);
             
             return redirect()->route('oficinas.show', ['oficina' => $oficina]);
         }
