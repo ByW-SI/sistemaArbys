@@ -112,12 +112,34 @@
 					</div>
 				</div>
 			</div>
+			<div class="container">
 			<div class="row">
-				<img src="{{$oficina->archivo_telefono}}" alt="contrato de luz" style="width: 100px;">
+				<div class="col-12">
+				<!-- <img src="{{$oficina->archivo_telefono}}" alt="contrato de luz" style="width: 100px;">
 				<br>
 				<img src="{{$oficina->archivo_luz}}" alt="contrato de luz" style="width: 100px;">
 				<br>
-				<img src="{{$oficina->archivo_agua}}" alt="contrato de luz" style="width: 100px;">
+				<img src="{{$oficina->archivo_agua}}" alt="contrato de luz" style="width: 100px;"> -->
+			<table class="table table-striped table-bordered table-hover" style="margin-bottom: 0px;">
+			<TR>CONTRATOS</TR>
+			<tr class="info">
+			
+			<th class="col-sm-1">AGUA</th>
+			<th class="col-sm-1">LUZ</th>
+			<th class="col-sm-1">TELEFONO</th>
+			
+			</tr>
+			<tr>
+		
+			<td><img width="200px" src="{{asset('storage/'.''.$oficina->archivo_telefono)}}" alt="">
+			</td>
+			<td><img width="200px" src="{{asset('storage/'.''.$oficina->archivo_luz)}}" alt=""></td>
+			<td><img width="200px" src="{{asset('storage/'.''.$oficina->archivo_agua)}}" alt=""></td>
+			
+			</tr>
+			</table>
+			</div>
+			</div>
 			</div>
 			@foreach(Auth::user()->perfil->componentes as $componente)
                 @if($componente->nombre == 'editar oficina')
