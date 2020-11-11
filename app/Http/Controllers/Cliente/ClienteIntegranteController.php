@@ -48,6 +48,7 @@ class ClienteIntegranteController extends Controller
      */
     public function store(Request $request)
     {
+       
         $integrante = new Integrante();
         $integrante->cliente_id = $request->cliente_id;
         $integrante->archivo_identificacion = Storage::disk('local')->put('foto1', $request->archivo_identificacion);
