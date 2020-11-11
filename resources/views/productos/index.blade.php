@@ -200,7 +200,7 @@
 						<div class="form-group col-sm-2 col-sm-offset-1">
 							<div class="input-group">
 								<span class="input-group-addon">
-									<input type="checkbox" name="60 meses" aria-label="60 meses"
+									<input type="checkbox"  id="m60" name="60 meses" aria-label="60 meses"
 										{{ $producto['m60'] > 0 ? '' : 'disabled' }}>
 									<label class="control-label">60 Meses:</label>
 									<dd>{{ $producto['m60'] > 0 ? '$' . number_format($producto['m60'], 2) : 'N/A' }}
@@ -211,7 +211,7 @@
 						<div class="form-group col-sm-2">
 							<div class="input-group">
 								<span class="input-group-addon">
-									<input type="checkbox" name="48 meses" aria-label="48 meses"
+									<input type="checkbox" id="m48" name="48 meses" aria-label="48 meses"
 										{{ $producto['m48'] > 0 ? '' : 'disabled' }}>
 									<label class="control-label">48 Meses:</label>
 									<dd>{{ $producto['m48'] > 0 ? '$' . number_format($producto['m48'], 2) : 'N/A' }}
@@ -222,7 +222,7 @@
 						<div class="form-group col-sm-2">
 							<div class="input-group">
 								<span class="input-group-addon">
-									<input type="checkbox" name="36 meses" aria-label="36 meses"
+									<input type="checkbox" id="m36" name="36 meses" aria-label="36 meses"
 										{{ $producto['m36'] > 0 ? '' : 'disabled' }}>
 									<label class="control-label">36 Meses:</label>
 									<dd>{{ $producto['m36'] > 0 ? '$' . number_format($producto['m36'], 2) : 'N/A' }}
@@ -233,7 +233,7 @@
 						<div class="form-group col-sm-2">
 							<div class="input-group">
 								<span class="input-group-addon">
-									<input type="checkbox" name="24 meses" aria-label="24 meses"
+									<input type="checkbox" id="m24" name="24 meses" aria-label="24 meses"
 										{{ $producto['m24'] > 0 ? '' : 'disabled' }}>
 									<label class="control-label">24 Meses:</label>
 									<dd>{{ $producto['m24'] > 0 ? '$' . number_format($producto['m24'], 2) : 'N/A' }}
@@ -244,7 +244,7 @@
 						<div class="form-group col-sm-2">
 							<div class="input-group">
 								<span class="input-group-addon">
-									<input type="checkbox" name="12 meses" aria-label="12 meses"
+									<input type="checkbox" id="m12" name="12 meses" aria-label="12 meses"
 										{{ $producto['m12'] > 0 ? '' : 'disabled' }}>
 									<label class="control-label">12 Meses:</label>
 									<dd>{{ $producto['m12'] > 0 ? '$' . number_format($producto['m12'], 2) : 'N/A' }}
@@ -268,7 +268,7 @@
 					<input type="hidden" name="cliente_id" value="{{ $cliente->id }}">
 					<input type="hidden" name="product_id" value="{{ $producto->id }}">
 					<input type="hidden" name="mensaje_correo" class="mensaje_correo">
-					<input class="btn btn-success" type="submit" value="Enviar a Correo" name="correo">
+					<input class="btn btn-success" type="submit" id="correo" value="Enviar a Correo" name="correo" >
 				</form>
 				@endif
 			</div>
@@ -285,7 +285,7 @@
 					</form>
 				</div> --}}
 				<div class="col-sm-4">
-					<button form="meses_{{$producto->id}}" type="submit" class="btn btn-warning">Descargar PDF</button>
+					<button form="meses_{{$producto->id}}" id="pdf" name="pdf" type="submit" class="btn btn-warning" >Descargar PDF</button>
 				</div>
 				<div class="col-sm-4">
 					<button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -300,6 +300,7 @@
 @endforeach
 @endsection
 @section('scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
 	function showFiltrosCarro(){
 			$('#filtro-moto').prop('style', 'display: none;');
@@ -316,6 +317,33 @@
 		 * se muestran los filtros de carro
 		 * se ocultan los filtros de moto 
 		*/
+		// $('input[type=checkbox][id=m36]').change(function() {
+			
+		// 	if ($(this).prop('checked')) {
+		// 		$( "#pdf" ).prop( "disabled", false );
+		// 		$( "#pdf" ).hide( "slow");
+		// 	}
+		// });
+
+		$('input[type=checkbox]').on('change', function() {
+             if ($(this).is(':checked') ) {
+                $( "#pdf" ).prop( "disabled", true );
+                $( "#correo" ).prop( "disabled", true );
+                alert("Hola estoy en true");
+             } else {
+                $( "#pdf" ).prop( "disabled", false );
+                 $( "#correo" ).prop( "disabled", false );
+                alert("Hola estoy en false");
+            }
+        });
+  // 		$('input[type=checkbox]').change(function() {
+		// 	if(this.value == 'personalizado'){
+		// 		$('.mensaje').show('slow');
+		// 	}else{
+		// 		$('.mensaje').hide('slow');
+		// 		$(".mensaje").val('');
+		// 	}
+		// });
 
 		$('#carro').change(function() {
 			if ($(this).prop('checked')) {
