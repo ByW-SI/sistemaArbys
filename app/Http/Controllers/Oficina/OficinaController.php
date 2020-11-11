@@ -102,12 +102,13 @@ class OficinaController extends Controller
                 ->back()
                 ->withErrors($validator);
         }
-        $request->file('archivo_agua')->store('contrato_agua');
-          $request->file('contrato_luz')->store('contrato_luz');
-            $request->file('contrato_telefono')->store('contrato_telefono');
+    
 
         if ($this->hasComponent('crear oficina')) {
             $oficina = Oficina::create($request->all());
+            $oficina = Storage::disk('local')->put('contrato_telefono', $request->contrato_telefono);
+            $oficina = Storage::disk('local')->put('contrato_luz', $request->contrato_luz);
+            $oficina = Storage::disk('local')->put('contrato_agua', $request->contrato_agua);
             
             return redirect()->route('oficinas.show', ['oficina' => $oficina]);
         }
