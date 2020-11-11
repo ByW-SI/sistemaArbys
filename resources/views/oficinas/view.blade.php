@@ -113,11 +113,11 @@
 				</div>
 			</div>
 			<div class="row">
-				<img src="contratos/{{$oficina->archivo_telefono}}" alt="contrato de luz" style="width: 100px;">
+				<img src="{{$oficina->archivo_telefono}}" alt="contrato de luz" style="width: 100px;">
 				<br>
-				<img src="contratos/{{$oficina->archivo_luz}}" alt="contrato de luz" style="width: 100px;">
+				<img src="{{$oficina->archivo_luz}}" alt="contrato de luz" style="width: 100px;">
 				<br>
-				<img src="contratos/{{$oficina->archivo_agua}}" alt="contrato de luz" style="width: 100px;">
+				<img src="{{$oficina->archivo_agua}}" alt="contrato de luz" style="width: 100px;">
 			</div>
 			@foreach(Auth::user()->perfil->componentes as $componente)
                 @if($componente->nombre == 'editar oficina')
