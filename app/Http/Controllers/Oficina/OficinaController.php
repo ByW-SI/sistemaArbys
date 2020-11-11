@@ -104,29 +104,29 @@ class OficinaController extends Controller
         }
         // dd($request->all());
         // dd($request->file('contrato_telefono'));
-        $file_1 = $request->file('archivo_telefono');
-        $name_1 = time().$file_1->getClientOriginalName();
-        $file_1->move(public_path().'\contratos',$name_1);
+        // $file_1 = $request->file('archivo_telefono')->store('public');
+        // $name_1 = time().$file_1->getClientOriginalName();
+        // $file_1->move(public_path().'\contratos',$name_1);
+            // dd($file_1);
+        // $file_2 = $request->file('archivo_agua');
+        // $name_2 = time().$file_2->getClientOriginalName();
+        // $file_2->move(public_path().'\contratos',$name_2);
 
-        $file_2 = $request->file('archivo_agua');
-        $name_2 = time().$file_2->getClientOriginalName();
-        $file_2->move(public_path().'\contratos',$name_2);
-
-        $file_3 = $request->file('archivo_luz');
-        $name_3 = time().$file_3->getClientOriginalName();
-        $file_3->move(public_path().'\contratos',$name_3);
-
+        // $file_3 = $request->file('archivo_luz');
+        // $name_3 = time().$file_3->getClientOriginalName();
+        // $file_3->move(public_path().'\contratos',$name_3);
+        // dd(Storage::disk('local')->put('contrato_telefono', $request->archivo_telefono));
         if ($this->hasComponent('crear oficina')) {
             $oficina = Oficina::create($request->all());
-            $oficina->archivo_telefono = $name_1;
-            $oficina->archivo_agua = $name_2;
-            $oficina->archivo_luz = $name_3;
-            $oficina->save();
-            // $oficina->contrato_telefono = Storage::disk('local')->put('contrato_telefono', $request->contrato_telefono);
-            // $oficina->contrato_luz = Storage::disk('local')->put('contrato_luz', $request->contrato_luz);
-
-            // $oficina->contrato_agua = Storage::disk('local')->put('contrato_agua', $request->contrato_agua);
+            // $oficina->archivo_telefono = $name_1;
+            // $oficina->archivo_agua = $name_2;
+            // $oficina->archivo_luz = $name_3;
             
+            $oficina->archivo_telefono = Storage::disk('local')->put('public/contrato_telefono', $request->archivo_telefono);
+            $oficina->archivo_luz = Storage::disk('local')->put('public/contrato_luz', $request->archivo_luz);
+
+            $oficina->archivo_agua = Storage::disk('local')->put('public/contrato_agua', $request->archivo_agua);
+             $oficina->save();
             return redirect()->route('oficinas.show', ['oficina' => $oficina]);
         }
         return redirect()->route('denegado');
