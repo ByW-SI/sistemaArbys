@@ -132,9 +132,12 @@
 			<tr>
 		
 			<td><img width="200px" src="{{asset('storage/'.''.$oficina->archivo_telefono)}}" alt="">
+				<a href="{{asset('storage/'.''.$oficina->archivo_telefono)}}">Ver</a>
 			</td>
-			<td><img width="200px" src="{{asset('storage/'.''.$oficina->archivo_luz)}}" alt=""></td>
-			<td><img width="200px" src="{{asset('storage/'.''.$oficina->archivo_agua)}}" alt=""></td>
+			<td><img width="200px" src="{{asset('storage/'.''.$oficina->archivo_luz)}}" alt="">
+				<a href="">{{asset('storage/'.''.$oficina->archivo_luz)}}</a>Ver</td>
+			<td><img width="200px" src="{{asset('storage/'.''.$oficina->archivo_agua)}}" alt="">
+				<a href="{{asset('storage/'.''.$oficina->archivo_agua)}}">Ver</a></td>
 			
 			</tr>
 			</table>
