@@ -29,7 +29,7 @@
 					@endforeach
 				</div>
 			</div>
-			<form action="{{ route('oficinas.store') }}" method="post">
+			<form action="{{ route('oficinas.store') }}" method="post" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="panel-body">
 					<div class="row">
@@ -140,71 +140,24 @@
 			<h1>Contratos de arrendamiento <small></small></h1>
 		</div>
 		<div class="panel panel-primary">
-			<div class="panel-heading">Añada los archivos</div>
-			<div class="panel-body">
-				<div class="row">
-					<div class="col-sm-4 form-group">
-						
-						<input  type="text" name="num_identificacion" class="form-control" value="Contrato de Agua" readonly="true">
-						</select>
-					</div>
-					<div class="col-sm-4 form-group">
-						<div class="row">
-							<label for="archivo_identificacion"
-								style="font-size: 10px;font-weight: 600;color: #fff;border-radius: 5px;background-color: #1464dc;display: inline-block;transition: all .5s;cursor: pointer;margin-top: 0px;padding: 15px 40px !important;text-transform: uppercase;width: fit-content;text-align: center"><span>Subir
-									Archivo</span></label>
-							<span><input  class="inputfile" type="file" name="archivo_identificacion"
-									id="archivo_identificacion"
-									style="width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden; position: absolute;z-index: -1"></span>
+				<div class="panel-heading">Añada los archivos</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-4 form-group">
+							<label for="archivo_agua">CONTRATO DE AGUA</label>
+							<input type="file" name="archivo_agua"> <br>
+
+							<label for="archivo_luz">CONTRATO DE LUZ</label>
+							<input type="file" name="archivo_luz"> <br>
+
+
+							<label for="contrato_telefono">CONTRATO DE TELEFONO</label>
+							<input type="file" name="contrato_telefono">
 						</div>
-
+					</div>
 					
-					</div>
-
-				</div>
-				<div class="row">
-					<div class="col-sm-4 form-group">
-						
-						<input  type="text" name="num_identificacion" class="form-control" value="Contrato de Luz" readonly="true">
-						</select>
-					</div>
-					<div class="col-sm-4 form-group">
-						<div class="row">
-							<label for="archivo_identificacion"
-								style="font-size: 10px;font-weight: 600;color: #fff;border-radius: 5px;background-color: #1464dc;display: inline-block;transition: all .5s;cursor: pointer;margin-top: 0px;padding: 15px 40px !important;text-transform: uppercase;width: fit-content;text-align: center"><span>Subir
-									Archivo</span></label>
-							<span><input  class="inputfile" type="file" name="archivo_identificacion"
-									id="archivo_identificacion"
-									style="width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden; position: absolute;z-index: -1"></span>
-						</div>
-
-					
-					</div>
-
-				</div>
-				<div class="row">
-					<div class="col-sm-4 form-group">
-						
-						<input  type="text" name="num_identificacion" class="form-control" value=" Contrato de Telefono" readonly="true">
-						</select>
-					</div>
-					<div class="col-sm-4 form-group">
-						<div class="row">
-							<label for="archivo_identificacion"
-								style="font-size: 10px;font-weight: 600;color: #fff;border-radius: 5px;background-color: #1464dc;display: inline-block;transition: all .5s;cursor: pointer;margin-top: 0px;padding: 15px 40px !important;text-transform: uppercase;width: fit-content;text-align: center"><span>Subir
-									Archivo</span></label>
-							<span><input  class="inputfile" type="file" name="archivo_identificacion"
-									id="archivo_identificacion"
-									style="width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden; position: absolute;z-index: -1"></span>
-						</div>
-
-					
-					</div>
-
 				</div>
 			
-
-			</div>
 		</div>
 	</form>
 						

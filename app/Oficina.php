@@ -32,6 +32,9 @@ class Oficina extends Model
         'telefono1',
         'telefono2',
         'telefono3',
+        'archivo_agua',
+        'archivo_luz',
+        'archivo_telefono'
     ];
 
     public $sortable = ['id', 'nombre', 'identificador', 'responsable'];

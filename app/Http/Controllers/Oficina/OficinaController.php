@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Http\Controllers\Controller;
 use App\Transaction;
+use League\Flysystem\Filesystem;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
@@ -68,7 +70,9 @@ class OficinaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+
+         
         // $request->validate([
             
         //     'identificador'=>'required|integer',
@@ -98,9 +102,13 @@ class OficinaController extends Controller
                 ->back()
                 ->withErrors($validator);
         }
+        $request->file('archivo_agua')->store('contrato_agua');
+          $request->file('contrato_luz')->store('contrato_luz');
+            $request->file('contrato_telefono')->store('contrato_telefono');
 
         if ($this->hasComponent('crear oficina')) {
             $oficina = Oficina::create($request->all());
+            
             return redirect()->route('oficinas.show', ['oficina' => $oficina]);
         }
         return redirect()->route('denegado');
